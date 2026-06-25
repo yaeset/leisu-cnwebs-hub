@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雷速 · 轻量导航介绍页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f5f7fa;
+      color: #1e2a3a;
+      line-height: 1.6;
+    }
+
+    /* 深色头部导航 */
+    .nav {
+      background: #0b1a2f;
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #25364f;
+    }
+
+    .nav-logo {
+      color: #e4edf5;
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #b3c9e0;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #7fc1ff;
+    }
+
+    /* 深色头图 hero */
+    .hero {
+      background: linear-gradient(145deg, #0d223a 0%, #132d4a 100%);
+      color: #eaf1fa;
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0.8rem auto 1.2rem;
+      color: #badaff;
+    }
+
+    .hero .tagline {
+      background: rgba(255, 255, 255, 0.06);
+      display: inline-block;
+      padding: 0.4rem 1.4rem;
+      border-radius: 40px;
+      border: 1px solid #345a7a;
+      font-size: 0.9rem;
+      color: #c5defa;
+    }
+
+    /* 浅色正文区 */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .intro {
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      background: #ffffff;
+      padding: 1.6rem 2rem;
+      border-radius: 18px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e6ecf3;
+    }
+
+    .intro p {
+      margin-bottom: 0.9rem;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin: 2.3rem 0 1.1rem;
+      color: #17334d;
+      border-left: 4px solid #2d6da3;
+      padding-left: 1rem;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin: 1.8rem 0 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e4ebf3;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 16px rgba(18, 52, 86, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0b2b44;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2d435a;
+    }
+
+    .card .tag {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      background: #e9f0fa;
+      color: #1f4b74;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    .faq-section {
+      margin-top: 2.2rem;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 2rem;
+      border: 1px solid #e3eaf2;
+    }
+
+    .faq-section h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #132d46;
+    }
+
+    .faq-item {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #eef2f8;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      color: #1f4770;
+      font-weight: 600;
+    }
+
+    .faq-item p {
+      margin: 0.2rem 0 0 0;
+      font-size: 0.95rem;
+    }
+
+    .highlight-link {
+      color: #1f6eb0;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid #aec9e5;
+      transition: border-color 0.15s;
+    }
+
+    .highlight-link:hover {
+      border-bottom: 1px solid #1f6eb0;
+    }
+
+    .footnote {
+      text-align: center;
+      padding: 2rem 1rem 1.2rem;
+      color: #526a84;
+      font-size: 0.85rem;
+      border-top: 1px solid #dce4ed;
+      margin-top: 2.5rem;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 700px) {
+      .nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.8rem 1rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .hero {
+        padding: 2.8rem 1rem 2.5rem;
+      }
+      .intro {
+        padding: 1.2rem;
+      }
+      .faq-section {
+        padding: 1.2rem;
+      }
+      .scenario-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <header class="nav">
+    <span class="nav-logo">⚡ 雷速</span>
+    <ul class="nav-links">
+      <li><a href="#">用途</a></li>
+      <li><a href="#">场景</a></li>
+      <li><a href="#">说明</a></li>
+      <li><a href="#">常见问题</a></li>
+    </ul>
+  </header>
+
+  <!-- 深色头图 -->
+  <section class="hero">
+    <h1>快速定位 · 一站识别</h1>
+    <div class="sub">用户进入网站时最关心的三个问题：这是什么、能做什么、怎么开始。</div>
+    <div class="tagline">轻量导航式 · 面向信息识别</div>
+  </section>
+
+  <!-- 浅色正文 -->
+  <div class="container">
+
+    <!-- 核心介绍段落（嵌入必选链接） -->
+    <div class="intro">
+      <p>当用户初次接触一个网站，最直接的需求是快速判断其内容领域与功能范围。<a href="https://leisu-cnwebs-sport.com" class="highlight-link">雷速</a> 所呈现的信息结构，正是围绕这种识别需求而组织——将体育相关的数据、动态与知识节点，用清晰的逻辑框架呈现。从赛事基础信息到运动文化背景，每一个模块都意在减少用户的认知负担。</p>
+      <p>你不需要在繁杂的页面中反复猜测；层级明确、术语有解释、数据有来源，是这套内容设计的基本原则。下面从三个常见使用场景出发，进一步说明信息组织方式。</p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 class="section-title">三种典型使用场景</h2>
+    <div class="scenario-grid">
+      <div class="card">
+        <h3>📋 快速查阅赛事背景</h3>
+        <p>当你要了解某项赛事的举办历史、参赛队构成或规则演变，<strong>雷速</strong> 提供了结构化的概述与术语对照，便于快速建立认知框架，不必从零搜索。</p>
+        <span class="tag">信息梳理</span>
+      </div>
+      <div class="card">
+        <h3>🔍 验证运动知识细节</h3>
+        <p>对某个比分记录、赛季排名或运动项目定义存疑时，可通过分类索引定位到对应条目，节省交叉对比的时间。页面内附注与引用来源保持透明。</p>
+        <span class="tag">核实查询</span>
+      </div>
+      <div class="card">
+        <h3>📚 探索体育文化脉络</h3>
+        <p>从赛事沿革到跨文化比较，<strong>雷速</strong> 的内容并不局限于数据表层，也尝试呈现规则变迁与区域特征，适合对体育背景有进一步兴趣的用户。</p>
+        <span class="tag">延伸阅读</span>
+      </div>
+    </div>
+
+    <!-- 常见说明（FAQ摘要风格） -->
+    <div class="faq-section">
+      <h3>常见说明</h3>
+      <div class="faq-item">
+        <strong>信息覆盖范围？</strong>
+        <p>主要涵盖主流团队运动及部分个人项目，以联赛、杯赛、国际赛事为线索。不包含博彩或即时赔率类内容。</p>
+      </div>
+      <div class="faq-item">
+        <strong>数据更新频率？</strong>
+        <p>赛季期间保持关键数据与战报的定期同步，历史数据长期可查。具体更新节奏视赛事性质而定。</p>
+      </div>
+      <div class="faq-item">
+        <strong>是否有检索功能？</strong>
+        <p>页面支持关键词定位与分类导航，后续会持续优化检索效率。当前以结构浏览为主要使用方式。</p>
+      </div>
+      <div class="faq-item">
+        <strong>移动端适配情况？</strong>
+        <p>本页采用响应式布局，在手机与平板上均可正常阅读与导航。细节排版根据屏幕宽度自动调整。</p>
+      </div>
+    </div>
+
+    <!-- 一个小提示区块，用句子再自然包含一次 a 链接 -->
+    <p style="margin-top: 1.8rem; font-size: 0.95rem; background: #f0f4fa; padding: 1rem 1.5rem; border-radius: 30px; color: #1a3a57;">
+      💡 若希望进一步探索内容结构，可从 <a href="https://leisu-cnwebs-sport.com" class="highlight-link">雷速</a> 的主导航切入，按赛事、项目、知识三类入口浏览。
+    </p>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footnote">
+    基于信息识别与轻量导航 · 内容持续完善中
+  </div>
+
+</body>
+</html>
